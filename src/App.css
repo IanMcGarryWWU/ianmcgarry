@@ -1,38 +1,186 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
 .App {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  background: rgb(2,0,36);
+  font-family: 'Josefin Sans', cursive;
+}
+
+.AppOverlay {
+  opacity: 0.5;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.Arrow {
+  cursor: pointer;
+}
+
+.AboutMe {
+  height: 100vh;
+  background-color: black;
+  color: white;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.AboutMeText {
+  min-width: 320px;
+  max-width: 38em;
+  margin: 0.5em 1em 25px;
+  padding: 0.25em;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.AboutMeList {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.ArrowPlacer {
+  position: absolute;
+  width: 100%;
+  background: rgba(0, 0, 0, 0);
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  z-index: 17799;
+  font-size: smaller;
+
+}
+
+.SuperHeader {
+  position: fixed;
+  top: 0.3em;
+  width: 100%;
+  overflow: hidden;
+  height: 10em;
+  background-color: rgba(0, 0, 0, 0);
+  z-index: 17800;
   color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+  font-size: smaller;
+  align-items: stretch;
 }
 
-.App-link {
-  color: #61dafb;
+.Header {
+  background-color: rgba(0, 0, 0, 0);
+  z-index: 17800;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-content: flex-end;
+  font-size: smaller;
+  flex-basis: 38em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.HeaderItem {
+  flex-grow: 1;
+  min-width: 2em;
+  flex-basis: 100%;
+  padding: 0.3em;
+  height: 100%;
+}
+
+.GlassCard {
+  background: rgba( 255, 255, 255, 0.178 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 2.0px );
+  -webkit-backdrop-filter: blur(10.0px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#tsparticles {
+  position : absolute;
+  width:100%;
+  height:100%;
+}
+
+.GlassCardVert {
+  background: rgba( 255, 255, 255, 0.178 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 2.0px );
+  -webkit-backdrop-filter: blur(10.0px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Horizontal-Placer {
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  grid-template-rows: 100%;
+}
+
+
+.Middle {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 15% 35% 35% 15%;
+  background: rgba(76, 175, 80, 0);
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.Svg-middle {
+  height: 100%;
+  width: 100%;
+  background: rgba(76, 175, 80, 0);
+}
+
+.Skills {
+  height: 100vh;
+  background-color: #00ACD7;
+  color: white;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.Writing {
+  height: 100vh;
+  background-color: black;
+  color: white;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.Contact {
+  height: 100vh;
+  background-color: #00ACD7;
+  color: white;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
 }
