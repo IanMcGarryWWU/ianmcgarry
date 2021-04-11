@@ -94,7 +94,7 @@ const App = () => {
             setArrowY( arrowY + moveamount )
         }
 
-    },  [count])
+    },  [count])  // eslint-disable-line react-hooks/exhaustive-deps
 
     const getxy = (period, count, radius, phase) => {
         let posinperiod = count % period
