@@ -8,7 +8,7 @@ import useScrollPosition from '@react-hook/window-scroll'
 import useVisibility from 'react-use-visibility';
 import {Sankey} from 'react-vis';
 import useDimensions from "react-cool-dimensions";
-
+import * as Scroll from 'react-scroll';
 
 
 
@@ -61,7 +61,6 @@ let arrow = "M 50.270833,47.624999 97.895832,2.6458333 50.270833,29.104166 2.645
 let arrowspeed = 4
 
 const App = () => {
-    let Scroll = require('react-scroll');
     let scroll = Scroll.animateScroll;
 
     const [count, setCount] = useState(0)
@@ -219,7 +218,7 @@ const App = () => {
                 </div>
                 <div className="GlassCardVert AboutMeText" ref={aboutSecond} style={aboutSecondStyle}>
                     <div className="AboutMeList">
-                        The identification of difficulties and opportunities within the business.
+                        The identification of business difficulties and opportunities.
                     </div>
                     <div className="AboutMeList">
                         Researching, documenting and designing potential solutions.

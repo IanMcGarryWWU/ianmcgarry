@@ -1,5 +1,5 @@
 import React from "react";
-
+import * as Scroll from 'react-scroll';
 
 const HeightVary = (props) => {
     let y = props.scrollY
@@ -8,7 +8,6 @@ const HeightVary = (props) => {
     let text = props.text
     let style = {}
 
-    let Scroll = require('react-scroll');
     let scroll = Scroll.animateScroll;
 
     if (y > ((section - 1.5) * height) && y < ((section - 0.5) * height)) {
