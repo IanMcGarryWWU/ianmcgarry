@@ -113,12 +113,13 @@ const App = () => {
 
     let arrowopacity = Math.min((50 / Math.abs(scrollY - arrowY)) ** 2, 1) * 0.34
     let arrowperiod = 178 * 2
-    let arrowrange = 17 / 2
+    let arrowrange = 10
     let arrowcycle = 0
     if (arrowopacity === 0.34) {
         arrowcycle = Math.sin(((count % arrowperiod) / 18 ) * 2 * Math.PI) * arrowrange
     }
-    let arrowstyle = {top:  "93vh",  transform: "translate(0px, " + (arrowY + arrowcycle) + "px)", opacity: (arrowopacity * 100) + "%"}
+    let arrowtop = window.innerHeight * 0.93
+    let arrowstyle = {top:  arrowtop + "px",  transform: "translate(0px, " + (arrowY + arrowcycle) + "px)", opacity: (arrowopacity * 100) + "%"}
 
     const iswithinrange = (start, end) => {
         return scrollY >= (start * height) && scrollY <= (end * height);
@@ -186,14 +187,6 @@ const App = () => {
 
     return (
       <React.Fragment>
-          <div className="TestOverlay">
-              <diV>
-                  {height}
-              </diV>
-              <div>
-                {window.innerHeight}
-              </div>
-          </div>
           <div className="SuperHeader">
               <div className="Header">
                       <div className="HeaderItem">
