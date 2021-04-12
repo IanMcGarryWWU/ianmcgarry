@@ -5,7 +5,6 @@ import MyName from "./myname";
 import HeightVary from "./HeightVary"
 import MyParticles from "./MyParticles"
 import useScrollPosition from '@react-hook/window-scroll'
-import useVisibility from 'react-use-visibility';
 import {Sankey} from 'react-vis';
 import useDimensions from "react-cool-dimensions";
 import * as Scroll from 'react-scroll';
@@ -59,6 +58,7 @@ const links = [
 
 let arrow = "M 50.270833,47.624999 97.895832,2.6458333 50.270833,29.104166 2.6458333,2.6458333 Z"
 let arrowspeed = 4
+const fadeinspeed = 0.01
 
 const App = () => {
     let scroll = Scroll.animateScroll;
@@ -66,13 +66,10 @@ const App = () => {
     const [count, setCount] = useState(0)
     const scrollY = useScrollPosition(90 /*fps*/)
     const [arrowY, setArrowY] = useState(-200)
-    const aboutFirst = useRef();
-    const aboutSecond = useRef();
-    const aboutThird = useRef();
-    const aboutFirstStart = useRef(-1);
-    const aboutSecondStart = useRef(-1);
-    const aboutThirdStart = useRef(-1);
-    const appearancetime = 18
+    const aboutFirstCurrentOpacity = useRef(0);
+    const aboutSecondCurrentOpacity = useRef(0);
+    const aboutThirdCurrentOpacity = useRef(0);
+
 
     const { observe,  height, width } = useDimensions();
 
@@ -123,49 +120,66 @@ const App = () => {
     }
     let arrowstyle = {top:  "93vh",  transform: "translate(0px, " + (arrowY + arrowcycle) + "px)", opacity: (arrowopacity * 100) + "%"}
 
-    const aboutFirstVisible = useVisibility(aboutFirst.current, true);
-    const aboutSecondVisible = useVisibility(aboutSecond.current, true);
-    const aboutThirdVisible = useVisibility(aboutThird.current, true);
-
-    let aboutFirstStyle
-    if (aboutFirstVisible) {
-        if (aboutFirstStart.current < 0) {
-            aboutFirstStart.current = count
-        }
-        aboutFirstStyle = {opacity: Math.min((count - aboutFirstStart.current) / appearancetime, 1)}
-    } else {
-        if (aboutFirstStart.current > 0) {
-            aboutFirstStart.current = -count
-        }
-        aboutFirstStyle = {opacity: 1 - Math.min((count - (aboutFirstStart.current * -1)) / appearancetime, 1)}
+    const iswithinrange = (start, end) => {
+        return scrollY >= (start * height) && scrollY <= (end * height);
     }
 
+    const aboutFirstVisible = iswithinrange(0.2, 1.2)
+    const aboutSecondVisible = iswithinrange(0.4, 1.4)
+    const aboutThirdVisible = iswithinrange(0.6, 1.6)
+
+    
+    let aboutFirstStyle
+    if (aboutFirstVisible) {
+        if (aboutFirstCurrentOpacity.current < 1) {
+            aboutFirstCurrentOpacity.current += fadeinspeed
+            aboutFirstStyle = {opacity: aboutFirstCurrentOpacity.current}
+        } else {
+            aboutFirstStyle = {opacity: 1}
+        }
+    } else {
+        if (aboutFirstCurrentOpacity.current > 0) {
+            aboutFirstCurrentOpacity.current -= fadeinspeed
+            aboutFirstStyle = {opacity: aboutFirstCurrentOpacity.current}
+        } else {
+            aboutFirstStyle = {opacity: 0}
+        }
+    }
+    
     let aboutSecondStyle
     if (aboutSecondVisible) {
-        if (aboutSecondStart.current < 0) {
-            aboutSecondStart.current = count
+        if (aboutSecondCurrentOpacity.current < 1) {
+            aboutSecondCurrentOpacity.current += fadeinspeed
+            aboutSecondStyle = {opacity: aboutSecondCurrentOpacity.current}
+        } else {
+            aboutSecondStyle = {opacity: 1}
         }
-        aboutSecondStyle = {opacity: Math.min((count - aboutSecondStart.current) / appearancetime, 1)}
     } else {
-        if (aboutSecondStart.current > 0) {
-            aboutSecondStart.current = -count
+        if (aboutSecondCurrentOpacity.current > 0) {
+            aboutSecondCurrentOpacity.current -= fadeinspeed
+            aboutSecondStyle = {opacity: aboutSecondCurrentOpacity.current}
+        } else {
+            aboutSecondStyle = {opacity: 0}
         }
-        aboutSecondStyle = {opacity: 1 - Math.min((count - (aboutSecondStart.current * -1)) / appearancetime, 1)}
     }
 
     let aboutThirdStyle
     if (aboutThirdVisible) {
-        if (aboutThirdStart.current < 0) {
-            aboutThirdStart.current = count
+        if (aboutThirdCurrentOpacity.current < 1) {
+            aboutThirdCurrentOpacity.current += fadeinspeed
+            aboutThirdStyle = {opacity: aboutThirdCurrentOpacity.current}
+        } else {
+            aboutThirdStyle = {opacity: 1}
         }
-        aboutThirdStyle = {opacity: Math.min((count - aboutThirdStart.current) / appearancetime, 1)}
     } else {
-        if (aboutThirdStart.current > 0) {
-            aboutThirdStart.current = -count
+        if (aboutThirdCurrentOpacity.current > 0) {
+            aboutThirdCurrentOpacity.current -= fadeinspeed
+            aboutThirdStyle = {opacity: aboutThirdCurrentOpacity.current}
+        } else {
+            aboutThirdStyle = {opacity: 0}
         }
-        aboutThirdStyle = {opacity: 1 - Math.min((count - (aboutThirdStart.current * -1)) / appearancetime, 1)}
     }
-
+    
     const scrollToNext = () => {
         scroll.scrollTo((Math.floor(scrollY / height) + 1) * height);
     }
@@ -213,10 +227,10 @@ const App = () => {
                 <MyParticles height={"100%"}/>
             </div>  
             <div>
-                <div className="AboutMeText GlassCard" ref={aboutFirst} style={aboutFirstStyle}>
+                <div className="AboutMeText GlassCard" style={aboutFirstStyle}>
                     I am a business solutions developer with over ten years experience. This is a varied role that encompasses..
                 </div>
-                <div className="GlassCardVert AboutMeText" ref={aboutSecond} style={aboutSecondStyle}>
+                <div className="GlassCardVert AboutMeText" style={aboutSecondStyle}>
                     <div className="AboutMeList">
                         The identification of business difficulties and opportunities.
                     </div>
@@ -230,7 +244,7 @@ const App = () => {
                         Maintaining the data models and flows that underpin them.
                     </div>
                 </div>
-                <div className={"AboutMeText GlassCard"} ref={aboutThird} style={aboutThirdStyle}>
+                <div className={"AboutMeText GlassCard"} style={aboutThirdStyle}>
                     I have been programming for over 30 years and am also a painter, photographer and musician. I apply a logical and creative approach to problem solving and design.
                 </div>
             </div>
