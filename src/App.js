@@ -186,6 +186,14 @@ const App = () => {
 
     return (
       <React.Fragment>
+          <div className="TestOverlay">
+              <diV>
+                  {height}
+              </diV>
+              <div>
+                {window.innerHeight}
+              </div>
+          </div>
           <div className="SuperHeader">
               <div className="Header">
                       <div className="HeaderItem">

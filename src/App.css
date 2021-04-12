@@ -9,6 +9,12 @@
   font-family: 'Josefin Sans', cursive;
 }
 
+.TestOverlay {
+  position: fixed;
+  color: white;
+  z-index: 189798;
+}
+
 .AppOverlay {
   opacity: 0.5;
   position: absolute;
