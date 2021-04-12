@@ -101,7 +101,7 @@
 
 .GlassCard {
   background: rgba( 255, 255, 255, 0.178 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  box-shadow: 0 0.125em 0.5em 0 rgba( 0, 0, 0, 0.37 );
   backdrop-filter: blur( 2.0px );
   -webkit-backdrop-filter: blur(10.0px );
   border-radius: 10px;
