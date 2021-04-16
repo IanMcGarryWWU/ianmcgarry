@@ -134,14 +134,14 @@ const App = () => {
     if (aboutFirstVisible) {
         if (aboutFirstCurrentOpacity.current < 0.999) {
             aboutFirstCurrentOpacity.current += fadeinspeed
-            aboutFirstStyle = {opacity: aboutFirstCurrentOpacity.current}
+            aboutFirstStyle = {opacity: Math.min(aboutFirstCurrentOpacity.current,  0.999)}
         } else {
             aboutFirstStyle = {opacity: 0.999}
         }
     } else {
         if (aboutFirstCurrentOpacity.current > 0) {
             aboutFirstCurrentOpacity.current -= fadeinspeed
-            aboutFirstStyle = {opacity: aboutFirstCurrentOpacity.current}
+            aboutFirstStyle = {opacity: Math.min(aboutFirstCurrentOpacity.current, 0.999)}
         } else {
             aboutFirstStyle = {opacity: 0}
         }
@@ -151,14 +151,14 @@ const App = () => {
     if (aboutSecondVisible) {
         if (aboutSecondCurrentOpacity.current < 0.999) {
             aboutSecondCurrentOpacity.current += fadeinspeed
-            aboutSecondStyle = {opacity: aboutSecondCurrentOpacity.current}
+            aboutSecondStyle = {opacity: Math.min(aboutSecondCurrentOpacity.current, 0.999)}
         } else {
             aboutSecondStyle = {opacity: 0.999}
         }
     } else {
         if (aboutSecondCurrentOpacity.current > 0) {
             aboutSecondCurrentOpacity.current -= fadeinspeed
-            aboutSecondStyle = {opacity: aboutSecondCurrentOpacity.current}
+            aboutSecondStyle = {opacity: Math.min(aboutSecondCurrentOpacity.current, 0.999)}
         } else {
             aboutSecondStyle = {opacity: 0}
         }
@@ -168,14 +168,14 @@ const App = () => {
     if (aboutThirdVisible) {
         if (aboutThirdCurrentOpacity.current < 0.999) {
             aboutThirdCurrentOpacity.current += fadeinspeed
-            aboutThirdStyle = {opacity: aboutThirdCurrentOpacity.current}
+            aboutThirdStyle = {opacity: Math.min(aboutThirdCurrentOpacity.current, 0.999)}
         } else {
             aboutThirdStyle = {opacity: 0.999}
         }
     } else {
         if (aboutThirdCurrentOpacity.current > 0) {
             aboutThirdCurrentOpacity.current -= fadeinspeed
-            aboutThirdStyle = {opacity: aboutThirdCurrentOpacity.current}
+            aboutThirdStyle = {opacity: Math.min(aboutThirdCurrentOpacity.current, 0.999)}
         } else {
             aboutThirdStyle = {opacity: 0}
         }
