@@ -132,11 +132,11 @@ const App = () => {
     
     let aboutFirstStyle
     if (aboutFirstVisible) {
-        if (aboutFirstCurrentOpacity.current < 1) {
+        if (aboutFirstCurrentOpacity.current < 0.999) {
             aboutFirstCurrentOpacity.current += fadeinspeed
             aboutFirstStyle = {opacity: aboutFirstCurrentOpacity.current}
         } else {
-            aboutFirstStyle = {opacity: 1}
+            aboutFirstStyle = {opacity: 0.999}
         }
     } else {
         if (aboutFirstCurrentOpacity.current > 0) {
@@ -149,11 +149,11 @@ const App = () => {
     
     let aboutSecondStyle
     if (aboutSecondVisible) {
-        if (aboutSecondCurrentOpacity.current < 1) {
+        if (aboutSecondCurrentOpacity.current < 0.999) {
             aboutSecondCurrentOpacity.current += fadeinspeed
             aboutSecondStyle = {opacity: aboutSecondCurrentOpacity.current}
         } else {
-            aboutSecondStyle = {opacity: 1}
+            aboutSecondStyle = {opacity: 0.999}
         }
     } else {
         if (aboutSecondCurrentOpacity.current > 0) {
@@ -166,11 +166,11 @@ const App = () => {
 
     let aboutThirdStyle
     if (aboutThirdVisible) {
-        if (aboutThirdCurrentOpacity.current < 1) {
+        if (aboutThirdCurrentOpacity.current < 0.999) {
             aboutThirdCurrentOpacity.current += fadeinspeed
             aboutThirdStyle = {opacity: aboutThirdCurrentOpacity.current}
         } else {
-            aboutThirdStyle = {opacity: 1}
+            aboutThirdStyle = {opacity: 0.999}
         }
     } else {
         if (aboutThirdCurrentOpacity.current > 0) {
