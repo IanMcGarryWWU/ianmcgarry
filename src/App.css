@@ -106,7 +106,7 @@
 }
 
 .GlassCard {
-  background: rgba( 255, 255, 255, 0.178 );
+  background: rgba( 255, 255, 255, 0.05 );
   box-shadow: 0 0.125em 0.5em 0 rgba( 0, 0, 0, 0.37 );
   backdrop-filter: blur( 2.0px );
   -webkit-backdrop-filter: blur(10.0px );
@@ -126,7 +126,7 @@
 }
 
 .GlassCardVert {
-  background: rgba( 255, 255, 255, 0.178 );
+  background: rgba( 255, 255, 255, 0.05 );
   box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
   backdrop-filter: blur( 2.0px );
   -webkit-backdrop-filter: blur(10.0px );
@@ -185,11 +185,19 @@
 
 .Contact {
   height: 100vh;
-  background-color: #00ACD7;
+  background-color: #000000;
   color: white;
   overflow: hidden;
   display: flex;
   align-items: center;
   align-content: center;
   justify-content: center;
+}
+
+.ContactSVG {
+  fill: white;
+}
+
+.SvgAnchor {
+  z-index: 1780;
 }
