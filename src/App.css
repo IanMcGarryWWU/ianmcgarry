@@ -1,83 +1,203 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        body
-        {
-            background: #000000;
-        }
-        .imgbox {
-            display: grid;
-            height: 100%;
-        }
-        .center-fit {
-            max-width: 100%;
-            max-height: 100vh;
-            margin: auto;
-        }
-        .Arrow {
-            cursor: pointer;
-            -webkit-animation: fadeinout 10s ease-in-out ;
-            animation: fadeinout 10s ease-in-out ;
-            animation-iteration-count: infinite;
-            opacity: 0;
-        }
-        .ArrowPlacer {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 17799;
-        }
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
 
-        @-webkit-keyframes fadeinout {
-            50% { opacity: 1; }
-        }
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  background: rgb(2,0,36);
+  font-family: 'Josefin Sans', cursive;
+}
 
-        @keyframes fadeinout {
-            50% { opacity: 1; }
-        }
+.TestOverlay {
+  position: fixed;
+  color: white;
+  z-index: 189798;
+}
 
-    </style>
-</head>
-<body>
-<audio id="music" src="https://s1.citrus3.com:8236/stream"></audio>
-<div class="ArrowPlacer">
-    <svg height="25vh" width="25vh" viewBox="-1 -1 30 30" onClick="play1()" class="Arrow">
-        <path d="M 26.501617,0.25027746 C 0.39963167,13.683008 0.22246902,13.683008 0.22246902,13.683008 L 26.088237,26.334765 25.917948,13.877086 Z" fill="#FFFFFF" stroke="#FFFFFF"/>
-    </svg>
-</div>
-<div class="imgbox">
-    <img onClick="play1()" class="center-fit" src="https://github.com/IanMcGarryWWU/TheHatch/blob/master/Hatch1.png?raw=true" alt="MidjourneyAIArtByMcGarry">
+.AppOverlay {
+  opacity: 0.5;
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+}
 
-</div>>
+.Arrow {
+  cursor: pointer;
+}
 
-<script>
-    const audio1 = document.getElementById("music");
+.AboutMe {
+  height: 100vh;
+  background-color: black;
+  color: white;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
 
-    const isPlaying = (audElem) => {
-        return !audElem.paused;
-    };
+.AboutMeText {
+  min-width: 320px;
+  max-width: 38em;
+  margin: 0.5em 1em 25px;
+  padding: 0.25em;
+  text-align: center;
+}
 
-    function play1(){
-        if (isPlaying(audio1)) {
-            audio1.pause();
-        } else
-        {
-            audio1.play()
-        }
-    }
+.AboutMeList {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+  text-align: center;
+}
 
-</script>
-</body>
-</html>
+.ArrowPlacer {
+  position: absolute;
+  width: 100%;
+  background: rgba(0, 0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 17799;
+  font-size: smaller;
+
+}
+
+.SuperHeader {
+  position: fixed;
+  top: 0.3em;
+  width: 100%;
+  overflow: hidden;
+  height: 5em;
+  background-color: rgba(0, 0, 0, 0);
+  z-index: 17800;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+  font-size: smaller;
+  align-items: stretch;
+}
+
+.Header {
+  background-color: rgba(0, 0, 0, 0);
+  z-index: 17800;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-content: flex-end;
+  font-size: smaller;
+  flex-basis: 38em;
+
+}
+
+.HeaderItem {
+  flex-grow: 1;
+  min-width: 2em;
+  flex-basis: 100%;
+  padding: 0.3em;
+  height: 100%;
+
+}
+
+.GlassCard {
+  background: rgba( 255, 255, 255, 0.05 );
+  box-shadow: 0 0.125em 0.5em 0 rgba( 0, 0, 0, 0.37 );
+  backdrop-filter: blur( 2.0px );
+  -webkit-backdrop-filter: blur(10.0px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+#tsparticles {
+  position : absolute;
+  width:100%;
+  height:100%;
+}
+
+.GlassCardVert {
+  background: rgba( 255, 255, 255, 0.05 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 2.0px );
+  -webkit-backdrop-filter: blur(10.0px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Horizontal-Placer {
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  grid-template-rows: 100%;
+}
+
+
+.Middle {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 15% 35% 35% 15%;
+  background: rgba(76, 175, 80, 0);
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.Svg-middle {
+  height: 100%;
+  width: 100%;
+  background: rgba(76, 175, 80, 0);
+}
+
+.Skills {
+  height: 100vh;
+  background-color: #00ACD7;
+  color: white;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.Writing {
+  height: 100vh;
+  background-color: black;
+  color: white;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.Contact {
+  height: 100vh;
+  background-color: #000000;
+  color: white;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.ContactSVG {
+  fill: white;
+}
+
+.SvgAnchor {
+  z-index: 1780;
+}
