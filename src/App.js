@@ -32,28 +32,53 @@ const nodes = [
 ];
 
 const links = [
-    {source: 0, target: 5, value: 5},
-    {source: 1, target: 5, value: 6},
-    {source: 2, target: 5, value: 6},
-    {source: 3, target: 5, value: 5},
-    {source: 6, target: 5, value: 1},
-    {source: 3, target: 7, value: 5},
-    {source: 8, target: 7, value: 2},
-    {source: 9, target: 7, value: 3},
-    {source: 6, target: 7, value: 1},
-    {source: 10, target: 7, value: 1},
-    {source: 0, target: 11, value: 5},
-    {source: 10, target: 11, value: 1},
-    {source: 13, target: 12, value: 4},
-    {source: 0, target: 12, value: 4},
-    {source: 0, target: 15, value: 4},
-    {source: 10, target: 15, value: 1},
-    {source: 6, target: 16, value: 1},
-    {source: 4, target: 14, value: 4},
-    {source: 8, target: 12, value: 1},
-    {source: 1, target: 7, value: 3},
-    {source: 2, target: 7, value: 3},
-    {source: 1, target: 11, value: 2}
+    // Application Development - reduced VBA/Excel, boosted Python
+    {source: 0, target: 5, value: 6},   // Python → App Dev (was 5)
+    {source: 1, target: 5, value: 5},   // T-SQL → App Dev (was 6)
+    {source: 2, target: 5, value: 3},   // VBA → App Dev (was 6, reduced)
+    {source: 3, target: 5, value: 2},   // Excel → App Dev (was 5, reduced)
+    {source: 6, target: 5, value: 4},   // Javascript → App Dev (was 1, boosted)
+    
+    // Management Information - reduced Excel/VBA
+    {source: 3, target: 7, value: 2},   // Excel → MI (was 5, reduced)
+    {source: 8, target: 7, value: 2},   // Qlikview → MI
+    {source: 9, target: 7, value: 3},   // QGIS → MI
+    {source: 6, target: 7, value: 3},   // Javascript → MI (was 1, boosted)
+    {source: 1, target: 7, value: 3},   // T-SQL → MI
+    {source: 2, target: 7, value: 1},   // VBA → MI (was 3, reduced)
+    
+    // Data Analysis
+    {source: 0, target: 11, value: 5},  // Python → Data Analysis
+    {source: 10, target: 11, value: 1}, // R → Data Analysis
+    {source: 1, target: 11, value: 2},  // T-SQL → Data Analysis
+    
+    // Business Intelligence
+    {source: 13, target: 12, value: 4}, // SSIS → BI
+    {source: 0, target: 12, value: 4},  // Python → BI
+    {source: 8, target: 12, value: 1},  // Qlikview → BI
+    
+    // Data Science
+    {source: 0, target: 15, value: 5},  // Python → Data Science (was 4)
+    {source: 10, target: 15, value: 1}, // R → Data Science
+    
+    // Web Development - significantly boosted
+    {source: 6, target: 16, value: 6},  // Javascript → Web Dev (was 1, major boost)
+    {source: 0, target: 16, value: 3},  // Python → Web Dev (NEW)
+    {source: 1, target: 16, value: 2},  // T-SQL → Web Dev (NEW - backend data)
+    
+    // Business Analysis
+    {source: 4, target: 14, value: 4},  // ER Tools → Business Analysis
+    
+    // Cloud Development - NEW
+    {source: 0, target: 17, value: 5},  // Python → Cloud Dev
+    {source: 1, target: 17, value: 4},  // T-SQL → Cloud Dev
+    {source: 19, target: 17, value: 5}, // Microsoft Fabric → Cloud Dev
+    {source: 6, target: 17, value: 2},  // Javascript → Cloud Dev
+    
+    // Machine Learning - NEW
+    {source: 0, target: 18, value: 6},  // Python → ML
+    {source: 10, target: 18, value: 2}, // R → ML
+    {source: 1, target: 18, value: 2}   // T-SQL → ML (data pipelines)
 ];
 
 let arrow = "M 50.270833,47.624999 97.895832,2.6458333 50.270833,29.104166 2.6458333,2.6458333 Z"
