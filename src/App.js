@@ -12,23 +12,26 @@ import * as Scroll from 'react-scroll';
 
 
 const nodes = [
-    {name: 'Python'},
-    {name: 'T-SQL'},
-    {name: 'VBA'},
-    {name: 'Excel'},
-    {name: 'ER - Tools'},
-    {name: 'Application Development'},
-    {name: 'Javascript'},
-    {name: 'Management Information'},
-    {name: 'Qlikview'},
-    {name: 'QGIS / Arcmap'},
-    {name: 'R'},
-    {name: 'Data Analysis'},
-    {name: 'Business Intelligence'},
-    {name: 'SSIS'},
-    {name: 'Business Analysis'},
-    {name: 'Data Science'},
-    {name: 'Web Development'}
+    {name: 'Python'},           // 0
+    {name: 'T-SQL'},            // 1
+    {name: 'VBA'},              // 2
+    {name: 'Excel'},            // 3
+    {name: 'ER - Tools'},       // 4
+    {name: 'Application Development'}, // 5
+    {name: 'Javascript'},       // 6
+    {name: 'Management Information'}, // 7
+    {name: 'Qlikview'},         // 8
+    {name: 'QGIS / Arcmap'},    // 9
+    {name: 'R'},                // 10
+    {name: 'Data Analysis'},    // 11
+    {name: 'Business Intelligence'}, // 12
+    {name: 'SSIS'},             // 13
+    {name: 'Business Analysis'}, // 14
+    {name: 'Data Science'},     // 15
+    {name: 'Web Development'},  // 16
+    {name: 'Cloud Development'}, // 17 - NEW
+    {name: 'Machine Learning'}, // 18 - NEW
+    {name: 'Microsoft Fabric'}  // 19 - NEW
 ];
 
 const links = [
