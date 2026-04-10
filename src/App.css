@@ -4,15 +4,9 @@
   text-align: center;
   display: flex;
   flex-direction: row;
-  height: 100%;
-  background: rgb(2,0,36);
+  height: 100vh;
+  background: rgb(2, 0, 36);
   font-family: 'Josefin Sans', cursive;
-}
-
-.TestOverlay {
-  position: fixed;
-  color: white;
-  z-index: 189798;
 }
 
 .AppOverlay {
@@ -26,6 +20,7 @@
   cursor: pointer;
 }
 
+/* About Section */
 .AboutMe {
   height: 100vh;
   background-color: black;
@@ -33,67 +28,108 @@
   overflow: hidden;
   display: flex;
   align-items: center;
-  align-content: center;
   justify-content: center;
+  position: relative;
+}
+
+.ParticlesContainer {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+#tsparticles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.AboutContent {
+  position: relative;
+  z-index: 1;
 }
 
 .AboutMeText {
   min-width: 320px;
   max-width: 38em;
   margin: 0.5em 1em 25px;
-  padding: 0.25em;
+  padding: 0.5em 1em;
   text-align: center;
+  line-height: 1.6;
 }
 
 .AboutMeList {
-  margin-top: 0.25em;
-  margin-bottom: 0.25em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
   text-align: center;
+  line-height: 1.5;
 }
 
+/* Experience Section */
+.Experience {
+  height: 100vh;
+  background-color: #0a0a0a;
+  color: white;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ExperienceContent {
+  position: relative;
+  z-index: 1;
+}
+
+.SectionTitle {
+  font-size: 1.4em;
+  margin: 0 0 0.3em;
+  font-weight: bold;
+}
+
+.ExperienceSubtitle {
+  font-size: 0.9em;
+  opacity: 0.7;
+  margin: 0 0 0.8em;
+}
+
+/* Arrow */
 .ArrowPlacer {
   position: absolute;
   width: 100%;
-  background: rgba(0, 0, 0, 0);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
   z-index: 17799;
-  font-size: smaller;
-
 }
 
+/* Navigation */
 .SuperHeader {
   position: fixed;
   top: 0.3em;
   width: 100%;
   overflow: hidden;
   height: 5em;
-  background-color: rgba(0, 0, 0, 0);
   z-index: 17800;
   color: white;
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
   justify-content: center;
-  align-content: center;
-  font-size: smaller;
   align-items: stretch;
+  font-size: smaller;
+  font-family: 'Josefin Sans', cursive;
 }
 
 .Header {
-  background-color: rgba(0, 0, 0, 0);
   z-index: 17800;
   color: white;
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
   justify-content: flex-end;
   align-content: flex-end;
   font-size: smaller;
-  flex-basis: 38em;
-
+  flex-basis: 42em;
 }
 
 .HeaderItem {
@@ -102,36 +138,29 @@
   flex-basis: 100%;
   padding: 0.3em;
   height: 100%;
-
 }
 
+/* Glass Cards */
 .GlassCard {
-  background: rgba( 255, 255, 255, 0.05 );
-  box-shadow: 0 0.125em 0.5em 0 rgba( 0, 0, 0, 0.37 );
-  backdrop-filter: blur( 2.0px );
-  -webkit-backdrop-filter: blur(10.0px );
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0.125em 0.5em 0 rgba(0, 0, 0, 0.37);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border: 1px solid rgba(255, 255, 255, 0.18);
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-
-}
-
-#tsparticles {
-  position : absolute;
-  width:100%;
-  height:100%;
 }
 
 .GlassCardVert {
-  background: rgba( 255, 255, 255, 0.05 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 2.0px );
-  -webkit-backdrop-filter: blur(10.0px );
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border: 1px solid rgba(255, 255, 255, 0.18);
   color: white;
   display: flex;
   justify-content: center;
@@ -139,28 +168,26 @@
   flex-direction: column;
 }
 
-.Horizontal-Placer {
-  display: grid;
-  grid-template-columns: 20% 60% 20%;
-  grid-template-rows: 100%;
-}
-
-
+/* Hero layout */
 .Middle {
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 15% 35% 35% 15%;
-  background: rgba(76, 175, 80, 0);
+  grid-template-rows: 15% 35% auto 15%;
   flex-grow: 1;
   overflow: hidden;
 }
 
-.Svg-middle {
-  height: 100%;
-  width: 100%;
-  background: rgba(76, 175, 80, 0);
+.Subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1em;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 1em;
+  text-align: center;
 }
 
+/* Skills Section */
 .Skills {
   height: 100vh;
   background-color: #00ACD7;
@@ -168,21 +195,10 @@
   overflow: hidden;
   display: flex;
   align-items: center;
-  align-content: center;
   justify-content: center;
 }
 
-.Writing {
-  height: 100vh;
-  background-color: black;
-  color: white;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-}
-
+/* Contact Section */
 .Contact {
   height: 100vh;
   background-color: #000000;
@@ -190,14 +206,36 @@
   overflow: hidden;
   display: flex;
   align-items: center;
-  align-content: center;
   justify-content: center;
 }
 
 .ContactSVG {
   fill: white;
+  transition: fill 0.3s ease;
+}
+
+.SvgAnchor:hover .ContactSVG {
+  fill: #00D7FF;
 }
 
 .SvgAnchor {
   z-index: 1780;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .AboutMeText {
+    min-width: 280px;
+    margin: 0.3em 0.5em 15px;
+    font-size: 0.9em;
+  }
+
+  .Subtitle {
+    font-size: 0.75em;
+    padding: 0.5em 1em;
+  }
+
+  .Header {
+    flex-basis: 100%;
+  }
 }
